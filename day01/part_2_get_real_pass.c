@@ -1,0 +1,57 @@
+#include "../libft/libft.h"
+#include <fcntl.h>
+
+int main()
+{
+	int		dial = 50;
+	int		pass = 0;
+	int		fd = open("input.txt", O_RDONLY);
+	char	*line;
+	int		d;
+	int		m;
+	int		current_points;
+
+	if (fd < 0)
+	{
+		ft_putendl_fd("File not found", 2);
+		return (1);
+	}
+
+	line = get_next_line(fd);
+	ft_printf("The dial starts by pointing at %d.\n", dial);
+	while (line)
+	{
+		if (line[0]=='L')
+			d = -1;
+		else if(line[0]=='R')
+			d = 1;
+		else
+		{
+			ft_putendl_fd("direction error", 2);
+			return (1);
+		}
+		m = ft_atoi(line + 1);
+		if (m == 0)
+		{
+			ft_putendl_fd("number error", 2);
+			return (1);
+		}
+		current_points = 0;
+		for (int i = 0; i < m; i++)
+		{
+			dial =  (dial + d + 100) % 100;
+			if (dial == 0)
+				current_points++;
+		}
+		if (current_points)
+			ft_printf("The dial is rotated %s to point at %d; during this rotation, it points at 0 %d times.\n", line, dial, current_points);
+		else
+			ft_printf("The dial is rotated %s to point at %d.\n", line, dial);
+		pass += current_points;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	ft_printf("Pass: %d\n", pass);
+	return (0);
+}
