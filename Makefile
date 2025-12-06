@@ -1,4 +1,4 @@
-DAYS = day01 day02 day03 day04 day05
+DAYS = day01 day02 day03 day04 day05 day06
 
 PART ?= part_2
 
