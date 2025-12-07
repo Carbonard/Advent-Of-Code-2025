@@ -6,13 +6,13 @@
 /*   By: rselva-2 <rselva-2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:06:30 by rselva-2          #+#    #+#             */
-/*   Updated: 2025/11/27 20:42:25 by rselva-2         ###   ########.fr       */
+/*   Updated: 2025/12/07 15:04:27 by rselva-2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dynarray.h"
 
-int	add_int(t_dyn_int *d_array, size_t index, int number)
+int	add_int(t_dyn_int *d_array, size_t index, size_t number)
 {
 	size_t	new_size;
 
