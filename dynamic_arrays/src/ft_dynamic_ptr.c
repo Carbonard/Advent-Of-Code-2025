@@ -6,13 +6,13 @@
 /*   By: rselva-2 <rselva-2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:06:30 by rselva-2          #+#    #+#             */
-/*   Updated: 2025/12/04 10:19:02 by rselva-2         ###   ########.fr       */
+/*   Updated: 2025/12/07 22:20:13 by rselva-2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dynarray.h"
 
-int	add_ptr(t_dyn_ptr *d_array, void *str)
+int	add_ptr(t_dyn_ptr *d_array, char *str)
 {
 	if (!str)
 		return (0);
@@ -33,7 +33,7 @@ int	init_dyn_ptr(t_dyn_ptr *d_array, size_t size)
 {
 	d_array->size = size;
 	d_array->index = 0;
-	d_array->arr = malloc(d_array->size * sizeof(void *));
+	d_array->arr = malloc(d_array->size * sizeof(char *));
 	if (!(d_array->arr))
 	{
 		d_array->size = 0;

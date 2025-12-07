@@ -1,4 +1,4 @@
-DAYS = day01 day02 day03 day04 day05 day06
+DAYS = day01 day02 day03 day04 day05 day06 day07
 
 PART ?= part_2
 
@@ -12,5 +12,7 @@ clean:
 	@for d in $(DAYS); do \
 	    $(MAKE) -s -C $$d clean; \
 	done
+	$(MAKE) -s -C libft fclean
+	$(MAKE) -s -C dynamic_arrays fclean
 
 .PHONY: all build run clean $(DAYS)
