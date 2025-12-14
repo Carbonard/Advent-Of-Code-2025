@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dynamic_int.c                                   :+:      :+:    :+:   */
+/*   ft_dynamic_uint128.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rselva-2 <rselva-2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 17:06:30 by rselva-2          #+#    #+#             */
-/*   Updated: 2025/12/10 13:16:28 by rselva-2         ###   ########.fr       */
+/*   Created: 2025/12/11 00:59:51 by rselva-2          #+#    #+#             */
+/*   Updated: 2025/12/11 01:01:34 by rselva-2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dynarray.h"
 
-int	add_int(t_dyn_int *d_array, int number)
+int	add_ui128(t_dyn_uint128 *d_array, __uint128_t number)
 {
 	size_t	new_size;
 
@@ -22,7 +22,7 @@ int	add_int(t_dyn_int *d_array, int number)
 	if (new_size != d_array->size)
 	{
 		if (ft_realloc((void **)&(d_array->arr),
-			d_array->size * sizeof(int), new_size * sizeof(int)))
+			d_array->size * sizeof(__uint128_t), new_size * sizeof(__uint128_t)))
 			d_array->size = new_size;
 		else
 			return (0);
@@ -32,20 +32,20 @@ int	add_int(t_dyn_int *d_array, int number)
 	return (1);
 }
 
-int	init_dyn_int(t_dyn_int *d_array, size_t size)
+int	init_dyn_ui128(t_dyn_uint128 *d_array, size_t size)
 {
 	d_array->size = size;
-	d_array->index = 0;
-	d_array->arr = malloc(d_array->size * sizeof(int));
+	d_array->arr = malloc(d_array->size * sizeof(__uint128_t));
 	if (!(d_array->arr))
 	{
 		d_array->size = 0;
+		d_array->index = 0;
 		return (0);
 	}
 	return (1);
 }
 
-void	free_dyn_int(t_dyn_int *d_array)
+void	free_dyn_ui128(t_dyn_uint128 *d_array)
 {
 	d_array->size = 0;
 	d_array->index = 0;

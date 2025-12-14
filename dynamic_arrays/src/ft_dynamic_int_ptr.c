@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dynamic_int.c                                   :+:      :+:    :+:   */
+/*   ft_dynamic_int_ptr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rselva-2 <rselva-2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 17:06:30 by rselva-2          #+#    #+#             */
-/*   Updated: 2025/12/10 13:16:28 by rselva-2         ###   ########.fr       */
+/*   Created: 2025/12/11 01:05:29 by rselva-2          #+#    #+#             */
+/*   Updated: 2025/12/11 01:49:46 by rselva-2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dynarray.h"
 
-int	add_int(t_dyn_int *d_array, int number)
+int	add_int_ptr(t_dyn_int_ptr *d_array, int *str)
 {
-	size_t	new_size;
-
-	new_size = d_array->size;
-	while (d_array->index >= new_size)
-		new_size *= 2;
-	if (new_size != d_array->size)
+	if (!str)
+		return (0);
+	if (d_array->index >= d_array->size)
 	{
-		if (ft_realloc((void **)&(d_array->arr),
-			d_array->size * sizeof(int), new_size * sizeof(int)))
-			d_array->size = new_size;
+		if (ft_realloc2((void ***)&(d_array->arr),
+			d_array->size, d_array->size * 2))
+			d_array->size *= 2;
 		else
 			return (0);
 	}
-	d_array->arr[d_array->index] = number;
+	d_array->arr[d_array->index] = str;
 	d_array->index++;
 	return (1);
 }
 
-int	init_dyn_int(t_dyn_int *d_array, size_t size)
+int	init_dyn_int_ptr(t_dyn_int_ptr *d_array, size_t size)
 {
 	d_array->size = size;
 	d_array->index = 0;
-	d_array->arr = malloc(d_array->size * sizeof(int));
+	d_array->arr = malloc(d_array->size * sizeof(char *));
 	if (!(d_array->arr))
 	{
 		d_array->size = 0;
@@ -45,10 +42,15 @@ int	init_dyn_int(t_dyn_int *d_array, size_t size)
 	return (1);
 }
 
-void	free_dyn_int(t_dyn_int *d_array)
+void	free_dyn_int_ptr(t_dyn_int_ptr *d_array)
 {
-	d_array->size = 0;
-	d_array->index = 0;
+	size_t	i;
+
+	i = 0;
+	while (i < d_array->index)
+	{
+		free(d_array->arr[i]);
+		i++;
+	}
 	free(d_array->arr);
-	d_array->arr = NULL;
 }

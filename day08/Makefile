@@ -1,14 +1,14 @@
 .PHONY: all fclean
 
-NAME1 = part_1_count_splits
+NAME1 = part_1_mount_circuits
 
-NAME2 = part_2_count_time_lines
+NAME2 = part_2_mount_last_circuit
 
 LIBFT = ../libft/libft.a
 
 LIBARRAYS = ../dynamic_arrays/libft_dynarray.a
 
-FLAGS =  -O3 -I ../libft/ -L ../libft/ -lft -I ../dynamic_arrays/src -L ../dynamic_arrays/ -lft_dynarray  -lgmp
+FLAGS = -Wall -Werror -Wextra -O3 -I ../libft/ -L ../libft/ -lft -I ../dynamic_arrays/src -L ../dynamic_arrays/ -lft_dynarray  -lgmp
 
 all: $(NAME1) $(NAME2)
 

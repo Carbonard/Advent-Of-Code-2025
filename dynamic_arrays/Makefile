@@ -6,7 +6,8 @@ NAME = libft_dynarray.a
 
 HEADER = src/ft_dynarray.h
 
-FILES = dynarray_realloc dynamic_int dynamic_char dynamic_ptr dynamic_size_t_ptr
+FILES = dynarray_realloc dynamic_int dynamic_char dynamic_ptr dynamic_size_t_ptr\
+dynamic_int_ptr
 
 SRC_DIR = src
 

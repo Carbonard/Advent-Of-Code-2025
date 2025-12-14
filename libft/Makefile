@@ -1,6 +1,6 @@
 .PHONY: all, clean, fclean, re, bonus
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -O3
 #-fsanitize=address
 
 NAME = libft.a
