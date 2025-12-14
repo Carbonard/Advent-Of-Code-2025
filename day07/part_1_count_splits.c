@@ -20,12 +20,12 @@ static void	print_input(t_dyn_ptr *input)
 	{
 		ft_putstr_fd(input->arr[i], 1);
 	}
-	usleep(300000);
+	usleep(50000);
 }
 
 int main()
 {
-	int			fd = open("test.txt", O_RDONLY);
+	int			fd = open("input.txt", O_RDONLY);
 	t_dyn_ptr	input;
 	size_t		splits = 0;
 

@@ -2,7 +2,6 @@
 #include "../dynamic_arrays/src/ft_dynarray.h"
 #include <fcntl.h>
 #include <stdio.h>
-#include <gmp.h>
 
 typedef struct s_red_tiles
 {

@@ -6,7 +6,7 @@ NAME2 = part_2_get_real_ids
 
 LIBFT = ../libft/libft.a
 
-FLAGS = -Wall -Werror -Wextra -g3 -I ../libft/ -L ../libft/ -lft -lgmp
+FLAGS = -O3 -I ../libft/ -L ../libft/ -lft -lgmp
 
 all: $(NAME1) $(NAME2)
 

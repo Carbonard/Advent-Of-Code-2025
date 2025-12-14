@@ -8,7 +8,7 @@ LIBFT = ../libft/libft.a
 
 LIBARRAYS = ../dynamic_arrays/libft_dynarray.a
 
-FLAGS = -Wall -Werror -Wextra -O3 -I ../libft/ -L ../libft/ -lft -I ../dynamic_arrays/src -L ../dynamic_arrays/ -lft_dynarray  -lgmp
+FLAGS = -Wall -Werror -Wextra -O3 -I ../libft/ -L ../libft/ -lft -I ../dynamic_arrays/src -L ../dynamic_arrays/ -lft_dynarray
 
 all: $(NAME1) $(NAME2)
 

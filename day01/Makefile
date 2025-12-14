@@ -6,7 +6,7 @@ NAME2 = part_2_get_real_pass
 
 LIBFT = ../libft/libft.a
 
-FLAGS = -Wall -Werror -Wextra -g3 -I ../libft/ -L ../libft/ -lft
+FLAGS = -O3 -I ../libft/ -L ../libft/ -lft
 
 all: $(NAME1) $(NAME2)
 

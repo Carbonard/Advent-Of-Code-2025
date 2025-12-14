@@ -6,7 +6,7 @@
 /*   By: rselva-2 <rselva-2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 21:09:57 by rselva-2          #+#    #+#             */
-/*   Updated: 2025/10/01 21:09:58 by rselva-2         ###   ########.fr       */
+/*   Updated: 2025/12/14 18:02:27 by rselva-2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	(void)write(fd, &c, 1);
 }
